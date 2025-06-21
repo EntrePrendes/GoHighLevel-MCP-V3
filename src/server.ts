@@ -622,7 +622,7 @@ class GHLMCPServer {
    * Initialize and start the remote MCP server
    */
   async start(): Promise<void> {
-    const PORT = process.env.PORT || 8000;
+    const PORT = parseInt(process.env.PORT || '8000', 10);
     
     process.stderr.write('🚀 Starting Remote GoHighLevel MCP Server...\n');
     process.stderr.write('==========================================\n');
