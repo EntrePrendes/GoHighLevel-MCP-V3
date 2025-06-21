@@ -1,5 +1,4 @@
 FROM node:18-alpine
-
 WORKDIR /app
 
 # Copy package files
@@ -14,7 +13,7 @@ COPY . .
 # Install TypeScript globally
 RUN npm install -g typescript
 
-# Build the project
+# Build the project (compile TypeScript)
 RUN npm run build
 
 # Clean install production dependencies only
@@ -23,5 +22,5 @@ RUN npm ci --omit=dev
 # Expose port
 EXPOSE 3000
 
-# Start the application
-CMD ["npm", "start"]
+# Start the application - point to compiled server file
+CMD ["node", "dist/server.js"]
