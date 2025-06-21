@@ -186,7 +186,7 @@ class GHLMCPServer {
     });
 
     // List available tools endpoint
-    this.app.get('/api/tools', async (req, res) => {
+    this.app.get('/tools', async (req, res) => {
       try {
         const contactToolDefinitions = this.contactTools.getToolDefinitions();
         const conversationToolDefinitions = this.conversationTools.getToolDefinitions();
